@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Keep Sign-Up</title>
+    <link rel="stylesheet" href="/assets/css/SignInSignUp.css" />
+    <link rel="icon" type="image/x-icon" href="/img/fav.png" />
+  </head>
+  <body>
+    <div id="login-box">
+      <div class="left">
+        <h1 id="status">Sign Up</h1>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter username"
+        />
+        <input type="text" id="email" name="email" placeholder="E-mail" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input type="submit" id="signUp" name="signup_submit" value="Sign Up" />
+      </div>
+      <div class="right">
+        <h1 id="status">Sign In</h1>
+        <a href="signin.html">Click here to Sign-In</a>
+      </div>
+      <div class="or">OR</div>
+    </div>
+  </body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+    import {
+      getDatabase,
+      set,
+      ref,
+      update,
+    } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut,
+    } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_AQaoGnPFmIUpJnu8_04gcuDTaXd2LjA",
+      authDomain: "keepclone-553b9.firebaseapp.com",
+      databaseURL: "https://keepclone-553b9-default-rtdb.firebaseio.com",
+      projectId: "keepclone-553b9",
+      storageBucket: "keepclone-553b9.appspot.com",
+      messagingSenderId: "309819708070",
+      appId: "1:309819708070:web:980e9784ac2ca759301a67",
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    signUp.addEventListener("click", (e) => {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var username = document.getElementById("username").value;
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          set(ref(database, "users/" + user.uid), {
+            username: username,
+            email: email,
+          });
+          alert("User created!");
+          window.location.href = "signin.html";
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+          // ..
+        });
+    });
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // console.log("YES");
+        // ...
+      } else {
+        // console.log("NO");
+      }
+    });
+  </script>
+</html>

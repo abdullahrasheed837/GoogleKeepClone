@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+}
+@font-face {
+  /* Font*/
+  font-family: ProductSans;
+  src: url(/assets/Product\ Sans\ Regular.ttf);
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+body {
+}
+
+.product-san {
+  font-family: ProductSans;
+  font-size: 1.4rem;
+  color: #5f6368;
+}
+.Side-Items:hover {
+  background-color: #f1f3f4;
+
+  border-radius: 0px 25px 25px 0px;
+}
+
+.btn:hover {
+  background-color: #f1f3f4;
+}
+
+.Side-Items {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  /* opacity: 80%; */
+  font-size: 0.875rem;
+  color: #202124;
+}
+.Side-Items div {
+  opacity: 80%;
+}
+.box,
+.box1 {
+  width: 2.625rem;
+  display: inline-flex;
+  height: 2.625rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0px;
+}
+.box i,
+.box img {
+  text-align: center;
+  font-size: 130%;
+  /* font-size: 20px; */
+  color: black;
+  opacity: 60%;
+}
+
+.delete-option:hover {
+  cursor: pointer;
+  background-color: #feefc3;
+}
+#close-a-note,
+.close {
+  display: none;
+}
+
+.taking-note {
+  border-radius: 8px;
+
+  border: 1.5px #e0e0e0 solid;
+
+  box-shadow: 4px 1px 7px #c2c3c3;
+}
+.note_input {
+  font-size: 0.875rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+#note_input_modal {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  outline: none;
+}
+.noteCard {
+  width: 15.2rem;
+}
+.noteCard:hover {
+  box-shadow: 4px 1px 7px #c2c3c3;
+  cursor: pointer;
+}
+#title_input {
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+
+  border: none;
+  outline: none;
+}
+#title_input_modal {
+  font-size: 1.375rem;
+  font-family: "Roboto", sans-serif;
+
+  border: none;
+  outline: none;
+}
+/* Take a note input 3 logos */
+.taking-note img {
+  opacity: 60%;
+  width: 75%;
+  height: 75%;
+}
+.active:hover {
+  background-color: #feefc3;
+}
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+.card-text {
+  /* font-family: "Roboto", sans-serif; */
+  font-size: 1.125rem;
+}
+#search_input {
+  font-size: 1rem;
+  width: 100%;
+
+  font-family: "Roboto", sans-serif;
+  border: none;
+  outline: none;
+  background-color: #f1f3f4;
+}
+.active {
+  background-color: #feefc3;
+  border-radius: 0px 30px 30px 0px;
+}
+.box:hover {
+  border-radius: 75px 75px 75px 75px;
+  background-color: rgba(60, 64, 67, 0.08);
+}
+
+.box:hover > i,
+.box:hover > img {
+  opacity: 100%;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+}
+.searchcontainer {
+  background-color: #f1f3f4;
+}
+
+.searchcontainer:focus-within,
+#search_input:focus {
+  background-color: white;
+}
+.searchcontainer:focus-within {
+  box-shadow: 2px 1px 3px 2px #c2c3c3;
+}
